@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            
+                <div class="text-center">
+              
+                    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="floatingInput">Name</label>
+                            <input type="text" [class.is-invalid]="signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched" formControlName="name" class="form-control" id="name" placeholder="Name">
+                            <small class="text-danger" [class.d-none]="signUpForm.get('name')?.valid || signUpForm.get('name')?.untouched">Name is required</small>
+                          </div>
+                        <div class="mb-3">
+                            <label for="floatingInput">Email</label>
+                            <input type="email" [class.is-invalid]="email1?.invalid && email1?.touched"  formControlName="email" class="form-control" id="email" placeholder="name@example.com">
+                            <div *ngIf="(email1?.valid || email1?.touched)">
+                              <small class="text-danger" *ngIf="email1?.errors?.['required']">Email is required</small>
+                              <small class="text-danger" *ngIf="email1?.errors?.['pattern']">Enter valid email</small>
+                             </div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="floatingInput">mobile</label>
+                            <input type="number" [class.is-invalid]="signUpForm.get('mobile')?.invalid && signUpForm.get('mobile')?.touched" formControlName="mobile" class="form-control" id="mobile" placeholder="Mobile Number">
+                            <div *ngIf="(signUpForm.get('mobile')?.valid || signUpForm.get('mobile')?.touched)">
+                             <small class="text-danger" *ngIf="signUpForm.get('mobile')?.errors?.['required']">Mobile Number is required</small>
+                             <small class="text-danger" *ngIf="signUpForm.get('mobile')?.errors?.['pattern']">Please enter correct mobile number</small>
+                            </div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="floatingPassword">password</label>
+                            <input type="password"[class.is-invalid]="password1?.invalid && password1?.touched"  formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <div *ngIf="(password1?.valid || password1?.touched)">
+                              <small class="text-danger" *ngIf="password1?.errors?.['required']">Password is required</small>
+                              <small class="text-danger" *ngIf="password1?.errors?.['pattern']">Password must consists of 8 characters, atleast one Uppercase, one lowercase, one number and one special character</small>
+                             </div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="Input">confirmPassword</label>
+                            <input type="password" [class.is-invalid]="signUpForm.errors?.['misMatch']" formControlName="confirmPassword"  class="form-control" id="password" placeholder="confirm password">
+                            <small class="text-danger" *ngIf="signUpForm.errors?.['misMatch']">Password did not match</small>
+                          </div>
+                          <button [disabled]="signUpForm.invalid" class=" btn btn btn-primary" type="submit">Register</button><br><br>
+                         
+                    </form>
+                </div>
+           
+
+        </div>
+    </div>
+</div>
+

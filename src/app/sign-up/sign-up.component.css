@@ -1,0 +1,10 @@
+.row{
+    
+     margin-top: 5em;
+    align-items: center;
+    margin-left: 10cm; 
+}
+.container{
+    background-color: bisque;
+    height: auto;
+}
