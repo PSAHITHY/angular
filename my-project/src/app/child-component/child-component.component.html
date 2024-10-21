@@ -1,0 +1,8 @@
+<p>{{details}}</p>
+<label>Add an item:</label>
+<label>Two-Way-Databinding</label>
+<input type="text" [(ngModel)]="twoWayDataBinding">
+<p>{{twoWayDataBinding}}</p>
+<input type="text" #newItem>
+<button (click)="addNewItem(newItem.value)">Add me</button>
+<div><input placeholder="change color" style="color: blue;" [disabled]="show"></div>
